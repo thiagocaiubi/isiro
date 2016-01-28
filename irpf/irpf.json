@@ -1,0 +1,28 @@
+{
+    "2015": [{
+        "lower": 0,
+        "upper": 1903.98,
+        "aliquot": 0,
+        "deduction": 0
+    }, {
+        "lower": 1903.99,
+        "upper": 2826.65,
+        "aliquot": 0.075,
+        "deduction": 142.8
+    }, {
+        "lower": 2826.66,
+        "upper": 3751.05,
+        "aliquot": 0.15,
+        "deduction": 354.8
+    }, {
+        "lower": 3751.06,
+        "upper": 4664.68,
+        "aliquot": 0.225,
+        "deduction": 636.13
+    }, {
+        "lower": 4664.69,
+        "upper": null,
+        "aliquot": 0.225,
+        "deduction": 869.36
+    }]
+}

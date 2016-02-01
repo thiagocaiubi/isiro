@@ -20,7 +20,7 @@ var testCases = []struct {
 }
 
 var irrfByYear = map[string]IRRFRange{
-	"2015": {
+	"2016": {
 		{decimal.NewFromFloat(0), decimal.NewFromFloat(1000), decimal.NewFromFloat(0), decimal.NewFromFloat(0)},
 		{decimal.NewFromFloat(1000), decimal.NewFromFloat(2000), decimal.NewFromFloat(.1), decimal.NewFromFloat(100)},
 		{decimal.NewFromFloat(2000), decimal.NewFromFloat(0), decimal.NewFromFloat(.2), decimal.NewFromFloat(200)},
@@ -28,11 +28,11 @@ var irrfByYear = map[string]IRRFRange{
 }
 
 func TestCalculate(t *testing.T) {
-	irrf := NewIRRF(irrfByYear["2015"])
-	for _, tt := range testCases {
-		irrfDue := irrf.Calculate(decimal.NewFromFloat(tt.irrfBase))
-		if irrfDue.Cmp(decimal.NewFromFloat(tt.irrfDue)) != 0 {
-			t.Errorf("Expected IRRF contribution %v, but got %v", tt.irrfDue, irrfDue)
+	irrf := NewIRRF(irrfByYear["2016"])
+	for _, testCase := range testCases {
+		irrfDue := irrf.Calculate(decimal.NewFromFloat(testCase.irrfBase))
+		if irrfDue.Cmp(decimal.NewFromFloat(testCase.irrfDue)) != 0 {
+			t.Errorf("Expected %v, got %v", testCase.irrfDue, irrfDue)
 		}
 	}
 }

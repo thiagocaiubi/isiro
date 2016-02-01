@@ -38,27 +38,27 @@ func TestCalculate(t *testing.T) {
 		sal := sc.Calculate(testCase.grossSalary, testCase.depedentsQty)
 
 		if sal.GrossSalary.Cmp(testCase.grossSalary) != 0 {
-			t.Errorf("Expected %v, but got %v", testCase.grossSalary, sal.GrossSalary)
+			t.Errorf("Expected %v, got %v", testCase.grossSalary, sal.GrossSalary)
 		}
 
 		inss := testCase.grossSalary.Mul(tenPercent)
 		if sal.INSS.Cmp(inss) != 0 {
-			t.Errorf("Expected %v, but got %v", inss, sal.INSS)
+			t.Errorf("Expected %v, got %v", inss, sal.INSS)
 		}
 
 		dependents := testCase.depedentsQty.Mul(tenPercent)
 		if sal.Dependents.Cmp(dependents) != 0 {
-			t.Errorf("Expected %v, but got %v", dependents, sal.Dependents)
+			t.Errorf("Expected %v, got %v", dependents, sal.Dependents)
 		}
 
 		irrf := (testCase.grossSalary.Sub(inss).Sub(dependents)).Mul(tenPercent)
 		if sal.IRRF.Cmp(irrf) != 0 {
-			t.Errorf("Expected %v, but got %v", irrf, sal.IRRF)
+			t.Errorf("Expected %v, got %v", irrf, sal.IRRF)
 		}
 
 		netSalary := testCase.grossSalary.Sub(inss).Sub(irrf)
 		if sal.NetSalary.Cmp(netSalary) != 0 {
-			t.Errorf("Expected %v, but got %v", netSalary, sal.NetSalary)
+			t.Errorf("Expected %v, got %v", netSalary, sal.NetSalary)
 		}
 	}
 }

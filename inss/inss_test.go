@@ -6,7 +6,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-var inssTests = []struct {
+var testCases = []struct {
 	grossSalary float64
 	inssDue     float64
 }{
@@ -31,10 +31,10 @@ var inssByYear = map[string]INSSRange{
 
 func TestCalculate(t *testing.T) {
 	inss := NewINSS(inssByYear["2016"])
-	for _, tt := range inssTests {
-		inssDue := inss.Calculate(decimal.NewFromFloat(tt.grossSalary))
-		if inssDue.Cmp(decimal.NewFromFloat(tt.inssDue)) != 0 {
-			t.Errorf("Expected INSS contribution %v, but got %v", tt.inssDue, inssDue)
+	for _, testCase := range testCases {
+		inssDue := inss.Calculate(decimal.NewFromFloat(testCase.grossSalary))
+		if inssDue.Cmp(decimal.NewFromFloat(testCase.inssDue)) != 0 {
+			t.Errorf("Expected %v, got %v", testCase.inssDue, inssDue)
 		}
 	}
 }

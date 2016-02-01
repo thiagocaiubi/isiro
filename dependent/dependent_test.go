@@ -21,7 +21,7 @@ func TestCalculate(t *testing.T) {
 	for _, testCase := range testCases {
 		depDeduction := dep.Calculate(testCase.quantity)
 		if depDeduction.Cmp(testCase.expected) != 0 {
-			t.Errorf("Expected %v, but got %v", testCase.expected, depDeduction)
+			t.Errorf("Expected %v, got %v", testCase.expected, depDeduction)
 		}
 	}
 }

@@ -10,3 +10,6 @@ build:
 
 test:
 	@go test -v ./...
+
+test-race:
+	@go test -race -v ./...

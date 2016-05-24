@@ -16,8 +16,8 @@ clean:
 docker-build:
 	docker build -t $(ORGANIZATION)/$(CONTAINER) .
 
-.PHONY: docker
-docker: docker-build
+.PHONY: docker-run
+docker-run: docker-build
 	docker run --rm \
 		-v $(PWD):/go/src/$(CONTAINER) \
 		--name $(CONTAINER) \
